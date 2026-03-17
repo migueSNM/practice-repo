@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import "./App.css";
 
 interface Task {
@@ -7,13 +7,37 @@ interface Task {
   completed: boolean;
 }
 
+type Action =
+  | { type: "ADD_TASK"; payload: string }
+  | { type: "TOGGLE_TASK"; payload: string }
+  | { type: "DELETE_TASK"; payload: string };
+
+const reducer = (state: Task[], action: Action): Task[] => {
+  switch (action.type) {
+    case "ADD_TASK":
+      return [
+        ...state,
+        { id: crypto.randomUUID(), text: action.payload, completed: false },
+      ];
+    case "TOGGLE_TASK":
+      return state.map((task) =>
+        task.id === action.payload
+          ? { ...task, completed: !task.completed }
+          : task,
+      );
+    case "DELETE_TASK":
+      return state.filter((task) => task.id !== action.payload);
+  }
+};
+
 const filters = ["all", "active", "completed"];
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(() => {
+  const [tasks, dispatch] = useReducer(reducer, [], () => {
     const storedTasks = localStorage.getItem("tasks");
     return storedTasks !== null ? JSON.parse(storedTasks) : [];
   });
+
   const [input, setInput] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
 
@@ -22,24 +46,16 @@ function App() {
   }, [tasks]);
 
   const handleAddTask = () => {
-    setTasks((prevState) => [
-      ...prevState,
-      { id: crypto.randomUUID(), text: input, completed: false },
-    ]);
-
+    dispatch({ type: "ADD_TASK", payload: input });
     setInput("");
   };
 
   const handleCompleteTask = (id: string) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === id ? { ...task, completed: !task.completed } : task,
-    );
-    setTasks(updatedTasks);
+    dispatch({ type: "TOGGLE_TASK", payload: id });
   };
 
   const handleDeleteTask = (id: string) => {
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    setTasks(updatedTasks);
+    dispatch({ type: "DELETE_TASK", payload: id });
   };
 
   const handleActiveFilter = (filter: string) => {

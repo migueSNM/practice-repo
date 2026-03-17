@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
-const mockSignUp = (data) =>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const mockSignUp = (data: any) =>
   new Promise((resolve) => setTimeout(() => resolve(data), 1000));
 
 function App() {
@@ -27,8 +28,9 @@ function App() {
 
     return false;
   };
-
-  const handleSubmit = async (event) => {
+  
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     setError(null);
     const validationErrors = validate();
