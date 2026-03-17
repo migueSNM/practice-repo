@@ -1,0 +1,97 @@
+/* The mental checklist when starting from scratch:
+
+Define your spacing scale and color variables before any element styles
+Style the body and a surface color — everything else sits on top of these
+Typography next — headings, body, labels, captions
+Then interactive elements — inputs, buttons, links — with all their states
+Layout last — flexbox or grid to position things */
+
+:root {
+  --bg:           #0f1117;
+  --card:         #1a1d27;
+  --border:       #2e3244;
+  --accent:       #6c63ff;
+  --text:         #e2e8f0;
+  --text-muted:   #64748b;
+  --error:        #f87171;
+  --radius:       10px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4); 
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.74rem;
+}
+
+label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  color: var(--text);
+  background-color: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 1.25rem;
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.15);
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  opacity: 0.88;
+}
+
+button:active{
+  transform: scale(0.98);
+}
+
+.error {
+  font-size: 0.78rem;
+  color: var(--error);
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+input.invalid {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.12);
+}
