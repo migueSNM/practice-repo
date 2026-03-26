@@ -1,6 +1,7 @@
 import "./App.css";
 import { SearchableList } from "./components/SearchableList";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { FavoritesProvider } from "./context/favorites/provider";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -8,8 +9,10 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <h1>Searchable List</h1>
-      <SearchableList />
+      <FavoritesProvider>
+        <h1>Searchable List</h1>
+        <SearchableList />
+      </FavoritesProvider>
     </QueryClientProvider>
   );
 }
