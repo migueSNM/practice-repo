@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { useGameSearch } from "../hooks/useGameSearch";
 import { FavoritesContext } from "../context/favorites/context";
+import { useGamePanel } from "../hooks/useGamePanel";
+import { SidePanel } from "./SidePanel";
 
 export const SearchableList = () => {
   const { filteredGames, isLoading, isError, search, setSearch } =
     useGameSearch();
+
+  const { onGameSelected, state } = useGamePanel();
 
   const ctx = useContext(FavoritesContext);
 
@@ -37,7 +41,11 @@ export const SearchableList = () => {
         <div>No games found</div>
       ) : (
         filteredGames.map((game) => (
-          <div className="game-card" key={game.id}>
+          <div
+            className="game-card"
+            key={game.id}
+            onClick={() => onGameSelected(game)}
+          >
             <p>{game.name}</p>
             <button
               className={favorites.includes(game.id) ? "is-favorite" : ""}
@@ -48,6 +56,7 @@ export const SearchableList = () => {
           </div>
         ))
       )}
+      <SidePanel status={state.status} selectedGame={state.selectedGame} />
     </div>
   );
 };

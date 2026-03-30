@@ -1,11 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchGames } from "../api/games";
 import { useState } from "react";
-
-interface Game {
-  id: string;
-  name: string;
-}
+import type { Game } from "../types/game";
 
 export const useGameSearch = () => {
   const [search, setSearch] = useState("");
