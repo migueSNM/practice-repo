@@ -1,21 +1,19 @@
 from fastapi import FastAPI
-from routes.events import event_router
+from routes.items import router as item_router
+from routes.users import router as user_router
 
-app = FastAPI()
-app.include_router(event_router)
+# Create FastAPI instance
+app = FastAPI(
+    title="My first FastAPI",
+    description="A basic API to learn FastAPI",
+    version="1.0.0"
+)
 
-@app.get('/')
+# Add routers
+app.include_router(item_router)
+app.include_router(user_router)
+
+# Root endpoint, good for health checks
+@app.get("/")
 def read_root():
-  return {"message": "Hello world!"}
-
-@app.get("/hello/{name}")
-def greet(name: str):
-  return {"greeting": f"Hello, {name}!"}
-
-@app.get("/users/{user_id}/orders/{order_id}")
-def get_order(user_id: int, order_id: int):
-  return {"user_id": user_id, "order_id": order_id}
-
-@app.get("/search")
-def search(q: str):
-  return {"query": q}
+    return {"status": "ok", "message": "Welcome to FastAPI Practice"}
