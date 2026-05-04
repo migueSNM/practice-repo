@@ -1,0 +1,142 @@
+.flight-list {
+  text-align: left;
+  margin: 24px;
+  background-color: #1a1a2e;
+  border-radius: 10px;
+  padding: 24px;
+  border: 1px solid white;
+}
+
+.flight-list-input {
+  outline: none;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid white;
+  margin-bottom: 12px;
+  width: 100%;
+  transition: box-shadow 0.1s;
+}
+
+.flight-list-input:focus {
+  box-shadow: inset 0 0 3px white;
+}
+
+.flight-list-card {
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  margin-bottom: 4px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.07);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.flight-list-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.flight-list-card-destination {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.flight-list-card-airline {
+  color: #a9a9a9;
+}
+
+.flight-list-card-price {
+  font-size: 36px;
+  font-weight: 800;
+  color: #7eb8f7;
+}
+
+.seat-selector {
+  padding: 24px;
+}
+
+.seat-selector__row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+
+  button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 4px;
+  }
+
+  button:not(:disabled):hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+button.available {
+  background-color: #008000;
+}
+
+button.occupied {
+  background-color: red;
+}
+
+button.exit {
+  background-color: yellow;
+}
+
+button.selected {
+  background-color: blue;
+}
+
+.flight-search {
+  padding: 24px;
+  margin: 24px;
+  border: 1px solid white;
+  border-radius: 8px;
+  text-align: left;
+  
+  input {
+    margin-right: 10px;
+  }
+}
+
+.loading-skeleton {
+  background-color: #6c6c6c;
+  width: 100px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.flight-search__list {
+  margin-top: 8px
+}
+
+.flight-search__card {
+  border: 1px solid white;
+  background-color: rgba(255,255,255,0.2);
+  margin-bottom: 4px;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  transition: background-color 0.3s;
+}
+
+.flight-search__card:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
+.flight-card__data {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.flight-card__price {
+  font-size: 36px;
+  font-weight: 800;
+  color: green;
+}
