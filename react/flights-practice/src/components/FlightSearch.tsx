@@ -15,58 +15,8 @@ flights.filter(f => f.route.includes(destination.toUpperCase()))
  */
 
 import { useSearch } from "../hooks/useSearch";
-
-interface Flight {
-  id: number;
-  origin: string;
-  destination: string;
-  price: number;
-  airline: string;
-  seats: number;
-}
-
-const flights: Flight[] = [
-  {
-    id: 1,
-    origin: "BUE",
-    destination: "MIA",
-    price: 320,
-    airline: "Aerolíneas",
-    seats: 0,
-  },
-  {
-    id: 2,
-    origin: "BUE",
-    destination: "MIA",
-    price: 210,
-    airline: "LATAM",
-    seats: 3,
-  },
-  {
-    id: 3,
-    origin: "BUE",
-    destination: "SCL",
-    price: 180,
-    airline: "LATAM",
-    seats: 5,
-  },
-  {
-    id: 4,
-    origin: "BUE",
-    destination: "MIA",
-    price: 275,
-    airline: "Aerolíneas",
-    seats: 2,
-  },
-  {
-    id: 5,
-    origin: "BUE",
-    destination: "SCL",
-    price: 95,
-    airline: "Sky",
-    seats: 0,
-  },
-];
+import { flights } from "../mocks";
+import type { Flight } from "../types";
 
 export const FlightSearch = () => {
   const mockSearch = (destination: string) =>

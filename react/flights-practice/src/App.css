@@ -1,3 +1,14 @@
+.light {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+/* dark */
+.dark {
+  background-color: #1a1a2e;
+  color: #f1f5f9;
+}
+
 .flight-list {
   text-align: left;
   margin: 24px;
@@ -140,3 +151,28 @@ button.selected {
   font-weight: 800;
   color: green;
 }
+
+.flight-wizard {
+  text-align: left;
+  padding: 24px;
+}
+
+.flight-wizard__card {
+  background-color: rgba(255,255,255,0.2);
+  border: 1px solid white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.flight-wizard__card.selected {
+  background-color: rgba(255,255,255,0.9);
+}
+
+.flight-wizard__card:hover {
+  background-color: rgba(255,255,255,0.07);
+  cursor: pointer;
+}
+

@@ -1,5 +1,8 @@
 import "./App.css";
 import { FlightSearch } from "./components/FlightSearch";
+import { FlightWizard } from "./components/FlightWizard";
+import { ThemeToggle } from "./components/ThemeToggle";
+import { ThemeProvider } from "./context/ThemeContext";
 // import { FlightList } from "./components/FlightList";
 // import { SeatSelector } from "./components/SeatSelector";
 // import { useFlights } from "./hooks/useFlights";
@@ -16,13 +19,15 @@ function App() {
   // ];
 
   return (
-    <>
+    <ThemeProvider>
       {/* {data && <FlightList flights={data || []} />} */}
       {/* {loading && <div>Loading...</div>} */}
 
       {/* <SeatSelector seats={seatMap} /> */}
+      <ThemeToggle />
       <FlightSearch />
-    </>
+      <FlightWizard />
+    </ThemeProvider>
   );
 }
 
