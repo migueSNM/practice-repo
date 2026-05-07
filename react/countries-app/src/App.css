@@ -1,0 +1,67 @@
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Input */
+.search-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 24px;
+}
+
+.search-input:focus {
+  border-color: #94a3b8;
+}
+
+/* Card — un solo patrón para todas las cards */
+.card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.card__label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.card__value {
+  font-size: 14px;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.card__title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.card__subtitle {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Estados */
+.loading {
+  color: #94a3b8;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 14px;
+  padding: 12px 0;
+}
